@@ -2,19 +2,24 @@ import java.util.Scanner;
 
 public class Main {
     // Declaring constants
-    final String NASGOR = "Nasi Goreng Spesial";
-    final double NASGOR_PRICE = 9999.99;
+    static final String NASGOR = "Nasi Goreng Spesial";
+    static final double NASGOR_PRICE = 9999.99;
 
-    final String AYAM = "Ayam Goreng Spesial";
-    final double AYAM_PRICE = 12345.67;
-    final String STEAK = "Steak Sirloin Spesial";
-    final double STEAK_PRICE = 21108.40;
-    final String KWETIAW = "Kwetiaw Siram Spesial";
-    final double KWETIAW_PRICE = 13579.13;
-    final String KAMBING = "Kambing Guling Spesial";
-    final double KAMBING_PRICE = 98765.43;
+    static final String AYAM = "Ayam Goreng Spesial";
+    static final double AYAM_PRICE = 12345.67;
+
+    static final String STEAK = "Steak Sirloin Spesial";
+    static final double STEAK_PRICE = 21108.40;
+
+    static final String KWETIAW = "Kwetiaw Siram Spesial";
+    static final double KWETIAW_PRICE = 13579.13;
+
+    static final String KAMBING = "Kambing Guling Spesial";
+    static final double KAMBING_PRICE = 98765.43;
+
     public static void main(String[] args) {
         int totalPerson, nasgorQty, ayamQty, steakQty, kwetiawQty, kambingQty;
+        double totalNasgor, totalAyam, totalSteak, totalKwetiaw, totalKambing;
         String name;
 
         Scanner input = new Scanner(System.in);
@@ -27,6 +32,8 @@ public class Main {
         name = input.nextLine();
 
         // Continue here
+        // Example
+        totalNasgor = calculatePrice(nasgorQty, NASGOR_PRICE);
     }
 
     public static void print(String param) {
