@@ -30,10 +30,31 @@ public class Main {
 
         print("Pesanan atas nama: ");
         name = input.nextLine();
+        
+        // Print menu spesial
+        printMenu();
+        
+        // Input pesanan
+        // Do something here
+        
+        printl("\n\n" + "Selamat menikmati makanan Anda...");
+        
+        // Print receipt
 
         // Continue here
         // Example
         totalNasgor = calculatePrice(nasgorQty, NASGOR_PRICE);
+    }
+    
+    public static void printMenu() {
+        printl("Menu Spesial hari ini");
+        printl("=====================");
+        
+        printl("\t1. " + NASGOR + "\t\t\t\t" + "@" + NASGOR_PRICE);
+        printl("\t2. " + AYAM + "\t\t\t\t" + "@" + AYAM_PRICE);
+        printl("\t3. " + STEAK + "\t\t\t\t" + "@" + STEAK_PRICE);
+        printl("\t4. " + KWETIAW + "\t\t\t\t" + "@" + KWETIAW_PRICE);
+        printl("\t5. " + KAMBING + "\t\t\t\t" + "@" + KAMBING_PRICE);
     }
 
     public static void print(String param) {
