@@ -29,6 +29,9 @@ public class Main {
         print("Pesan untuk berapa orang: ");
         totalPerson = input.nextInt();
 
+        // clean prev input line
+        input.nextLine();
+
         print("Pesanan atas nama: ");
         name = input.nextLine();
         
@@ -39,21 +42,20 @@ public class Main {
         // Do something here
         //Syahfiar Dhani
         printl(("Pesanan Anda [batas pesanan 0-10 porsi]"));
-        print("1. Nasi Goreng Spesial = ");
+        print("1. " + NASGOR + " = ");
         nasgorQty = input.nextInt();
-        print("2. Ayam Bakar Spesial = ");
+        print("2. " + AYAM + " = ");
         ayamQty = input.nextInt();
-        print("3. Steak Sirloin Spesial = ");
+        print("3. "+ STEAK +" = ");
         steakQty = input.nextInt();
-        print("4. Kwetiaw Siram Spesial = ");
+        print("4. "+ KWETIAW + " = ");
         kwetiawQty = input.nextInt();
-        print("5. Kambing Guling Spesial = ");
+        print("5. " + KAMBING + " = ");
         kambingQty = input.nextInt();
-        
+
         printl("\n\n" + "Selamat menikmati makanan Anda...");
-        
-        // Continue here
-        // Example
+
+        // Calculate each menu price
         totalNasgor = calculatePrice(nasgorQty, NASGOR_PRICE);
         totalAyam = calculatePrice(ayamQty, AYAM_PRICE);
         totalSteak = calculatePrice(steakQty, STEAK_PRICE);
@@ -66,9 +68,13 @@ public class Main {
        
         // Menghitung harga diskon
         double hargaDisc = totalAll * 10/100;
+        double finalPrice = totalAll - hargaDisc;
+        double pricePerPerson = finalPrice / totalPerson;
 
+        // Clear input value
+        input.nextLine();
 
-        System.out.println("Pembelian : ");
+        printl("Pembelian : ");
 
         totalPembelian(nasgorQty, totalNasgor, NASGOR, NASGOR_PRICE, 1);
         totalPembelian(ayamQty, totalAyam, AYAM, AYAM_PRICE, 3);
@@ -76,16 +82,22 @@ public class Main {
         totalPembelian(kwetiawQty, totalKwetiaw, KWETIAW, KWETIAW_PRICE, 4);
         totalPembelian(kambingQty, totalKambing, KAMBING, KAMBING_PRICE, 5);
 
-        System.out.println("============================================================================================");
-        System.out.printf("Total Pembelian\t\t\t\t\t\t = Rp.%.2f\n", totalAll);
-        System.out.printf("Disc. 10%% <Masa Promosi> \t\t\t\t\t\t = Rp.%.2f", hargaDisc);
+        printl("============================================================================================");
+        System.out.printf("Total Pembelian\t\t\t\t\t\t\t\t\t\t\t\t = \tRp.%.2f\n", totalAll);
+        System.out.printf("Disc. 10%% <Masa Promosi> \t\t\t\t\t\t\t\t\t = \tRp. %.2f\n", hargaDisc);
+        printl("============================================================================================");
+        System.out.printf("Total Pembelian setelah disc 10%% \t\t\t\t\t\t\t = \tRp. %.2f\n", finalPrice);
+        System.out.printf("Pembelian per orang (untuk %d orang) \t\t\t\t\t\t = \tRp.  %.2f\n\n", totalPerson, pricePerPerson);
 
+        printl("\t\t\t\t\t\tTerima kasih atas kunjungan Anda...");
+        printl("\t\t\t\t\t\t\t...Tekan ENTER untuk keluar...");
 
+        input.nextLine();
     }
     // Print pembelian
     //Naritha Cahya
     public static void totalPembelian(int qty, double totalPrice, String namaMenu, double price, int nomor){
-        printl(nomor +". "+ namaMenu + "\t\t" + qty + " porsi " + "*" + " Rp. " + totalPrice + " = " +"\tRp. "+ price);
+        System.out.printf("%d. %s \t\t %d porsi * Rp. %.2f \t = \tRp. %.2f\n", nomor, namaMenu, qty, price, totalPrice);
     }
 
     
@@ -95,9 +107,9 @@ public class Main {
         
         printl("\t1. " + NASGOR + "\t\t\t\t\t\t" + "@" + NASGOR_PRICE);
         printl("\t2. " + AYAM + "\t\t\t\t\t\t" + "@" + AYAM_PRICE);
-        printl("\t3. " + STEAK + "\t\t\t\t" + "@" + STEAK_PRICE);
-        printl("\t4. " + KWETIAW + "\t\t\t\t" + "@" + KWETIAW_PRICE);
-        printl("\t5. " + KAMBING + "\t\t\t\t" + "@" + KAMBING_PRICE);
+        printl("\t3. " + STEAK + "\t\t\t\t\t" + "@" + STEAK_PRICE);
+        printl("\t4. " + KWETIAW + "\t\t\t\t\t" + "@" + KWETIAW_PRICE);
+        printl("\t5. " + KAMBING + "\t\t\t\t\t" + "@" + KAMBING_PRICE);
     }
 
     public static void print(String param) {
