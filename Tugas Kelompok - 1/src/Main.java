@@ -36,6 +36,18 @@ public class Main {
         
         // Input pesanan
         // Do something here
+        //Syahfiar Dhani
+        printl(("Pesanan Anda [batas pesanan 0-10 porsi]"));
+        print("1. Nasi Goreng Spesial = ");
+        nasgorQty = input.nextInt();
+        print("2. Ayam Bakar Spesial = ");
+        ayamQty = input.nextInt();
+        print("3. Steak Sirloin Spesial = ");
+        steakQty = input.nextInt();
+        print("4. Kwetiaw Siram Spesial = ");
+        kwetiawQty = input.nextInt();
+        print("5. Kambing Guling Spesial = ");
+        kambingQty = input.nextInt();
         
         printl("\n\n" + "Selamat menikmati makanan Anda...");
         
