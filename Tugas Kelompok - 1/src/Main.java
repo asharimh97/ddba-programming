@@ -5,7 +5,7 @@ public class Main {
     static final String NASGOR = "Nasi Goreng Spesial";
     static final double NASGOR_PRICE = 9999.99;
 
-    static final String AYAM = "Ayam Goreng Spesial";
+    static final String AYAM = "Ayam Bakar Spesial";
     static final double AYAM_PRICE = 12345.67;
 
     static final String STEAK = "Steak Sirloin Spesial";
@@ -21,6 +21,7 @@ public class Main {
         int totalPerson, nasgorQty, ayamQty, steakQty, kwetiawQty, kambingQty;
         double totalNasgor, totalAyam, totalSteak, totalKwetiaw, totalKambing;
         String name;
+        int nomor = 1;
 
         Scanner input = new Scanner(System.in);
 
@@ -33,7 +34,7 @@ public class Main {
         
         // Print menu spesial
         printMenu();
-        
+
         // Input pesanan
         // Do something here
         //Syahfiar Dhani
@@ -51,19 +52,49 @@ public class Main {
         
         printl("\n\n" + "Selamat menikmati makanan Anda...");
         
-        // Print receipt
-
         // Continue here
         // Example
         totalNasgor = calculatePrice(nasgorQty, NASGOR_PRICE);
+        totalAyam = calculatePrice(ayamQty, AYAM_PRICE);
+        totalSteak = calculatePrice(steakQty, STEAK_PRICE);
+        totalKwetiaw = calculatePrice(kwetiawQty, KWETIAW_PRICE);
+        totalKambing = calculatePrice(kambingQty, KAMBING_PRICE);
+
+        // Menghitung total pembelian
+        //Naritha Cahya
+        double totalAll = totalNasgor+totalAyam+totalSteak+totalKwetiaw+totalKambing;
+       
+        // Menghitung harga diskon
+        double hargaDisc = totalAll * 10/100;
+
+
+        System.out.println("Pembelian : ");
+
+        totalPembelian(nasgorQty, totalNasgor, NASGOR, NASGOR_PRICE, 1);
+        totalPembelian(ayamQty, totalAyam, AYAM, AYAM_PRICE, 3);
+        totalPembelian(steakQty, totalSteak, STEAK, STEAK_PRICE, 2);
+        totalPembelian(kwetiawQty, totalKwetiaw, KWETIAW, KWETIAW_PRICE, 4);
+        totalPembelian(kambingQty, totalKambing, KAMBING, KAMBING_PRICE, 5);
+
+        System.out.println("============================================================================================");
+        System.out.printf("Total Pembelian\t\t\t\t\t\t = Rp.%.2f\n", totalAll);
+        System.out.printf("Disc. 10%% <Masa Promosi> \t\t\t\t\t\t = Rp.%.2f", hargaDisc);
+
+
     }
+    // Print pembelian
+    //Naritha Cahya
+    public static void totalPembelian(int qty, double totalPrice, String namaMenu, double price, int nomor){
+        printl(nomor +". "+ namaMenu + "\t\t" + qty + " porsi " + "*" + " Rp. " + totalPrice + " = " +"\tRp. "+ price);
+    }
+
     
     public static void printMenu() {
         printl("Menu Spesial hari ini");
         printl("=====================");
         
-        printl("\t1. " + NASGOR + "\t\t\t\t" + "@" + NASGOR_PRICE);
-        printl("\t2. " + AYAM + "\t\t\t\t" + "@" + AYAM_PRICE);
+        printl("\t1. " + NASGOR + "\t\t\t\t\t\t" + "@" + NASGOR_PRICE);
+        printl("\t2. " + AYAM + "\t\t\t\t\t\t" + "@" + AYAM_PRICE);
         printl("\t3. " + STEAK + "\t\t\t\t" + "@" + STEAK_PRICE);
         printl("\t4. " + KWETIAW + "\t\t\t\t" + "@" + KWETIAW_PRICE);
         printl("\t5. " + KAMBING + "\t\t\t\t" + "@" + KAMBING_PRICE);
