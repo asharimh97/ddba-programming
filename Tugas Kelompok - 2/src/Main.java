@@ -1,7 +1,27 @@
+import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+
+        String name = "";
+        String nim = "";
+
+        //Naritha Cahya
+        //input nama dan nim sesuai dengan validasi
+        while(name.length() < 1 || name.length() > 25){
+            print("Masukkan Nama Anda [1..25] : ");
+            name = input.nextLine();
+        }
+        while(nim.length() != 10){
+            print("Masukkan NIM Anda [Harus 10 Karakter] : ");
+            nim = input.nextLine();
+        }
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+        
 
         generateOddEven(20, "even");
         printl("");
