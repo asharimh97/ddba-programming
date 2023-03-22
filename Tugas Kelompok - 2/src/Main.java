@@ -1,7 +1,19 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
 
-        printl("Hehehe");
+        String name = "";
+
+        
+        while(name.length() < 1 || name.length() > 25){
+            print("Masukkan Nama Anda [1..25] : ");
+            name = input.nextLine();
+        }
+
+        
+
     }
 
     public static void print(String param) {
