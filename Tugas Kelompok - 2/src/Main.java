@@ -7,6 +7,7 @@ public class Main {
 
         String name = "";
         String nim = "";
+        int RanNum = 0;
 
         //Naritha Cahya
         //input nama dan nim sesuai dengan validasi
@@ -20,14 +21,28 @@ public class Main {
         }
 
         System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-
         
+        //Syahfiar Dhani
+        System.out.println("Registrasi Sukses.,");
 
-        generateOddEven(20, "even");
+        System.out.println("Selamat datang " +name+ " [NIM : "+nim+"].. ^^v" );
+
+        System.out.println("Mari belajar macam-macam deret bilangan..");
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+        while(RanNum < 5 || RanNum > 20){
+            print("Masukkan Sembarang Angka [5..20] : ");
+            RanNum = input.nextInt();
+        }
+       
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"); 
+        
+        generateOddEven(RanNum, "even");
         printl("");
-        generateOddEven(20, "odd");
+        generateOddEven(RanNum, "odd");
         printl("");
-        generateFibo(20);
+        generateFibo(RanNum);
     }
 
     public static void generateOddEven(int num, String type) {
