@@ -96,6 +96,22 @@ public class Main {
         printl("Hasil penjumlahan: " + total);
     }
 
+    //pengulangan
+    //Andi Iken
+    public static boolean repeatProgram(Scanner input) {
+        while (true) {
+            System.out.print("Apakah ingin mengulang perhitungan? (Y/T): ");
+            String answer = input.next();
+            if (answer.equalsIgnoreCase("Y")) {
+                return true;
+            } else if (answer.equalsIgnoreCase("T")) {
+                System.out.println("Terima kasih telah menggunakan program ini.");
+                return false;
+            } else {
+                System.out.println("Masukan tidak valid, silakan coba lagi.");
+            }
+        }
+    }
     public static void print(String param) {
 
         System.out.print(param);
