@@ -9,6 +9,9 @@ public class Main {
     public static String[] answerLevel1 = {"die", "led", "lei", "let", "lid", "lie", "lit", "tie",
                                             "deli", "diet", "edit", "idle", "lied", "tied", "tile", "tilt",
                                             "tilde", "tiled", "title", "tilted", "titled"};
+    public static String[] answerLevel2 = {"ace","can","sac","sea","sec","see","aces","acne","cane","cans", "case","ease",
+                                            "sane","scan","seen","acnes","canes","cease","cense","scene","encase","seance"};
+    
     public static String answer;
     public static ArrayList<String> answers = new ArrayList<>();
     public static int finalScore=0;
@@ -26,6 +29,7 @@ public class Main {
 
         
         level(1, level1, answerLevel1);
+        leveltwo(2, level2, answerLevel2);
       
     }
 
@@ -45,7 +49,54 @@ public class Main {
         System.out.println();
 
         while (currentInp <= 10){
-            System.out.print(currentInp+") Your Answer :");
+            System.out.print(currentInp+") Your Answer : ");
+            answer = scanner.nextLine();
+            int validatedAnswer = validateAnswer(answer, answerList, currAnswerList);
+            
+            if (validatedAnswer >= 0){
+                if (validatedAnswer != 5){
+                    currentInp += 1;
+                }
+                
+                if (validatedAnswer >= 5){
+                    if (validatedAnswer == 5){
+                        System.out.println("You had already type this word before..");
+                    }  else{
+                        currentScore += validatedAnswer;
+                        System.out.println("#Right. Score : " + currentScore);
+                    }
+                }
+            }
+        }
+        
+        System.out.printf("You had answered 10 time %d right answers...", currentScore/10);
+        
+        if (currentScore >=70){
+            process = true;
+        }
+        finalScore += currentScore;
+        
+    }
+    
+    //Syahfiar Dhani
+
+    public static void leveltwo (int levelNumber, String[] levelChar, String[] answerList){
+        int currentScore=0;
+        int currentInp=1;
+        ArrayList<String> currAnswerList = new ArrayList<String>();
+        
+        System.out.println("\nlevel " + levelNumber);
+        System.out.println("-------");
+        System.out.print("         ");
+
+
+        for (String character : levelChar){
+            System.out.printf("%-10s",character);
+        }
+        System.out.println();
+
+        while (currentInp <= 10){
+            System.out.print(currentInp+") Your Answer : ");
             answer = scanner.nextLine();
             int validatedAnswer = validateAnswer(answer, answerList, currAnswerList);
             
