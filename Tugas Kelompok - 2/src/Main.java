@@ -1,13 +1,48 @@
+import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
 
-        generateOddEven(20, "even");
+        String name = "";
+        String nim = "";
+        int RanNum = 0;
+
+        //Naritha Cahya
+        //input nama dan nim sesuai dengan validasi
+        while(name.length() < 1 || name.length() > 25){
+            print("Masukkan Nama Anda [1..25] : ");
+            name = input.nextLine();
+        }
+        while(nim.length() != 10){
+            print("Masukkan NIM Anda [Harus 10 Karakter] : ");
+            nim = input.nextLine();
+        }
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        
+        //Syahfiar Dhani
+        System.out.println("Registrasi Sukses.,");
+
+        System.out.println("Selamat datang " +name+ " [NIM : "+nim+"].. ^^v" );
+
+        System.out.println("Mari belajar macam-macam deret bilangan..");
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+        while(RanNum < 5 || RanNum > 20){
+            print("Masukkan Sembarang Angka [5..20] : ");
+            RanNum = input.nextInt();
+        }
+       
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"); 
+        
+        generateOddEven(RanNum, "even");
         printl("");
-        generateOddEven(20, "odd");
+        generateOddEven(RanNum, "odd");
         printl("");
-        generateFibo(20);
+        generateFibo(RanNum);
     }
 
     public static void generateOddEven(int num, String type) {
