@@ -66,12 +66,32 @@ public class Main {
         }
         
         System.out.printf("You had answered 10 time %d right answers...", currentScore/10);
+
+        printCorrectAnswer(answerList);
         
         if (currentScore >=70){
             process = true;
         }
         finalScore += currentScore;
-        
+
+    }
+
+    private static void printCorrectAnswer(String[] answerList) {
+        int currentIdx = 0;
+        int horizontalIdx = 0;
+
+        System.out.println("Correct answers: ");
+        while(currentIdx < answerList.length) {
+            if (horizontalIdx == 10) {
+                System.out.print("\n");
+                horizontalIdx = 0;
+            }
+
+            System.out.print(answerList[currentIdx]  + "\t");
+
+            horizontalIdx+=1;
+            currentIdx += 1;
+        }
     }
     
     private static int validateAnswer(String answer, String[] answerList, ArrayList<String> currAnswerList) {
