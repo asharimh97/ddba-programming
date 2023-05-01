@@ -9,23 +9,79 @@ public class Main {
     public static String[] answerLevel1 = {"die", "led", "lei", "let", "lid", "lie", "lit", "tie",
                                             "deli", "diet", "edit", "idle", "lied", "tied", "tile", "tilt",
                                             "tilde", "tiled", "title", "tilted", "titled"};
+
+    //Syahfiar Dhani
+    public static String[] answerLevel2 = {"ace","can","sac","sea","sec","see","aces","acne","cane","cans", "case","ease",
+            "sane","scan","seen","acnes","canes","cease","cense","scene","encase","seance"};
+    //Andi Iken
+    public static String[] answerLevel3 = {"honker","rook","kerne", "kern","her", "neo", "hero", "hen", "hoe", "nor", "hore", "horn", "hone", "one"};
+    
     public static String answer;
     public static ArrayList<String> answers = new ArrayList<>();
-    public static int finalScore=0;
-    public static boolean process = false;
+    public static int finalScore = 0;
+    public static boolean process = true;
     public static boolean isRunning = false;
+    public static boolean win = false;
+
+
     public static void main(String[] args) {
-        System.out.println("===================\n");
-        System.out.println("Coepoe World Puzzle");
-        System.out.println("===================\n");
+        String repeat = "";
+        int currentLevel = 1;
 
-        System.out.println("Rules : ");
-        System.out.println("1. Create a word using given characters, min 3 characters & max 6 characters");
-        System.out.println("2. Each level, you have 10 chances to answer correctly");
-        System.out.println("3. To get through to next level, you have to score 70 points each level");
+        do {
+            // Reset all values everytime program start
+            process = true;
+            isRunning = false;
+            win = false;
 
-        
-        level(1, level1, answerLevel1);
+            // local variables
+            currentLevel = 1;
+            repeat = "";
+
+            System.out.println("===================\n");
+            System.out.println("Coepoe World Puzzle");
+            System.out.println("===================\n");
+
+            System.out.println("Rules : ");
+            System.out.println("1. Create a word using given characters, min 3 characters & max 6 characters");
+            System.out.println("2. Each level, you have 10 chances to answer correctly");
+            System.out.println("3. To get through to next level, you have to score 70 points each level");
+
+            while (process) {
+                String[] question = level1;
+                String[] answerKey = answerLevel1;
+
+                if (currentLevel == 2) {
+                    question = level2;
+                    answerKey = answerLevel2;
+                } else if (currentLevel == 3) {
+                    question = level3;
+                    answerKey = answerLevel3;
+                }
+
+                level(currentLevel, question, answerKey);
+
+                if (process) {
+                    currentLevel += 1;
+                } else {
+                    break;
+                }
+            }
+
+            if (win) {
+                System.out.println("===================\n");
+                System.out.println("You win!! Congrats!!");
+                System.out.println("Overall Score: " + finalScore);
+
+                System.out.println("Press ENTER to exit...");
+                scanner.nextLine();
+            } else {
+                System.out.println("===================\n");
+                System.out.println("You lose!! Try again? [y/t]");
+
+                repeat = scanner.nextLine();
+            }
+        } while (repeat.equalsIgnoreCase("y"));
       
     }
 
@@ -65,13 +121,22 @@ public class Main {
             }
         }
         
-        System.out.printf("You had answered 10 time %d right answers...", currentScore/10);
+        System.out.printf("You had answered 10 time %d right answers...\n", currentScore/10);
 
         printCorrectAnswer(answerList);
         
         if (currentScore >=70){
-            process = true;
+            if (levelNumber < 3) {
+                process = true;
+            } else {
+                process = false;
+                win = true;
+            }
+        } else {
+            process = false;
+            win = false;
         }
+
         finalScore += currentScore;
 
     }
@@ -92,6 +157,8 @@ public class Main {
             horizontalIdx+=1;
             currentIdx += 1;
         }
+
+        System.out.print("\n");
     }
     
     private static int validateAnswer(String answer, String[] answerList, ArrayList<String> currAnswerList) {
@@ -111,29 +178,3 @@ public class Main {
         return -1;
     }
 }
-
-//import java.io.*;
-//import java.util.Scanner;
-//
-//public class Main {
-//    public static BufferedReader buffer;
-//
-//    public static void main(String[] args) throws IOException {
-//        System.out.println("Hello world!");
-//        String word = "letter";
-//        boolean isFound = false;
-//
-//        initDictionary();
-//    }
-//
-//    public static void initDictionary() throws IOException {
-//        try {
-//            String path = new File(".").getCanonicalPath();
-//            String dictionaryPath = path + "/src/data.txt";
-//            File f = new File(dictionaryPath);
-//
-//            BufferedReader b = new BufferedReader(new FileReader(f));
-//            buffer = b;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
