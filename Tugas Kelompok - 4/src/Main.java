@@ -1,9 +1,55 @@
+import java.util.Scanner;
 public class Main {
+        static int[] data = new int[5];
+        static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int choice;
+        do {
+            System.out.println(""
+                        + "\nSelamat Datang di Program Simulasi"+"\n"
+                        + "Menu"+"\n"
+                        + "1. Random Data"+"\n"
+                        + "2. Simulasi Bubble Sort - Ascending"+"\n"
+                        + "3. Simulasi Selection Sort - Ascending"+"\n"
+                        + "4. Simulasi Bubble Sort - Descending"+"\n"
+                        + "5. Simulasi Selection Sort - Descending"+"\n"
+                        + "6. Keluar"+"\n"
+                        + "Masukkan Pilihan Anda."+"\n");
+                        
+        choice = input.nextInt();
+ 
         int[] sampleArray = { 5, 1, 4, 2, 8 };
+        
+        switch (choice) {
+            case 1:
+                randomData();
+                break;
+            case 2:
+                bubbleSortAscending(sampleArray);
+                break;
+            //Lanjutkan
+            case 6:
+                System.out.println("Terimakasih telah menggunakan aplikasi ini");
+                break;
+            } 
+        } while (choice != 6);
+    }
+    
+    public static void randomData() {
+            System.out.print("Masukkan batas bawah : ");
+                int lowerBound = input.nextInt();
+                    System.out.print("Masukkan batas atas : ");
+                int upperBound = input.nextInt();
 
-        bubbleSortAscending(sampleArray);
+            for (int i = 0; i < data.length; i++) {
+                    data[i] = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
+                }
+
+            System.out.println("Data yang dihasilkan :");
+                for (int i = 0; i < data.length; i++) {
+                    System.out.print(data[i] + " ");
+                    }
+                System.out.println();
     }
 
     public static void bubbleSortAscending(int[] arr) {
